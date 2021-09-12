@@ -25,17 +25,17 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.button.setOnClickListener {
-            getUrl()
-            binding.topText.text = binding.topEditText.text
-            binding.bottomText.text = binding.bottomEditText.text
+            val url1 =  binding.topEditText.text.toString()
+            val url2 =  binding.bottomEditText.text.toString()
+            getUrl(url1,url2)
         }
 
 
     }
 
-    private fun getUrl() {
+    private fun getUrl(url1: String , url2: String) {
         var url = items.random()
-        var mUrl = "https://apimeme.com/thumbnail?name=${url}"
+        var mUrl = "https://apimeme.com/meme?meme=${url}&top=${url1}&bottom=${url2}"
         loadImage(mUrl)
     }
 
